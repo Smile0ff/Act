@@ -17,7 +17,7 @@ class CenterIntro extends Component{
         let isMobile = this.props.isMobile,
             center = this.props.center,
             city = center.city || {},
-            photoObj = city.photo || {},
+            photoHigh = city.photo_high || {},
             contact = center.contact || {},
             projectCount = center.projects ? center.projects.length : 0,
             eventCount = center.events ? center.events.length : 0,
@@ -25,7 +25,7 @@ class CenterIntro extends Component{
 
         if(!isMobile){
             styles = {
-                "backgroundImage": "url("+ photoObj.original +")",
+                "backgroundImage": "url("+ photoHigh.original +")",
                 "backgroundRepeat": "no-repeat",
                 "backgroundPosition": "50% 50%",
                 "backgroundSize": "cover"
