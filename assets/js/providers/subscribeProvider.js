@@ -31,6 +31,42 @@ class SubscribeProvider{
                 this.store.emit("change");
 
                 break;
+            case subscribeConstants.CHECK_SUBSCRIBE_START:
+
+                this.store.handleCheckSubscriberStart(action.payload);
+                this.store.emit("change");
+
+                break;
+            case subscribeConstants.CHECK_SUBSCRIBE_END:
+
+                this.store.handleCheckSubscriberEnd(action.payload);
+                this.store.emit("change");
+
+                break;
+            case subscribeConstants.CHECK_SUBSCRIBE_ERROR:
+
+                this.store.handleCheckSubscriberError(action.payload);
+                this.store.emit("change");
+
+                break;
+            case subscribeConstants.CONFIRM_SUBSCRIBE_START:
+
+                this.store.handleConfirmSubscribeStart(action.payload);
+                this.store.emit("change");
+
+                break;
+            case subscribeConstants.CONFIRM_SUBSCRIBE_END:
+
+                this.store.handleConfirmSubscribeEnd(action.payload);
+                this.store.emit("change");
+
+                break;
+            case subscribeConstants.CONFIRM_SUBSCRIBE_ERROR:
+
+                this.store.handleConfirmSubscribeError(action.payload);
+                this.store.emit("change");
+
+                break;
         }
 
     }

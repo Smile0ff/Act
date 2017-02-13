@@ -9,6 +9,8 @@ class SubscribeStore extends EventEmitter{
         
         this.data = {
             loading: false,
+            isChecked: false,
+            isConfirmed: false,
             email: "",
             error: ""
         }
@@ -26,8 +28,40 @@ class SubscribeStore extends EventEmitter{
         this.data.email = data.email;
         this.data.error = data.error;
     }
+    handleCheckSubscriberStart(data){
+        this.data.loading = data.loading;
+    }
+    handleCheckSubscriberEnd(data){
+        this.data.loading = data.loading;
+        this.data.isChecked = data.isChecked;
+        this.data.email = data.email;
+    }
+    handleCheckSubscriberError(data){
+        this.data.loading = data.loading;
+        this.data.isChecked = data.isChecked;
+        this.data.error = data.error;
+    }
+    handleConfirmSubscribeStart(data){
+        this.data.loading = data.loading;
+    }
+    handleConfirmSubscribeEnd(data){
+        this.data.loading = data.loading;
+        this.data.isConfirmed = data.isConfirmed;
+        this.data.email = data.email;
+    }
+    handleConfirmSubscribeError(data){
+        this.data.loading = data.loading;
+        this.data.isConfirmed = data.isConfirmed;
+        this.data.error = data.error;
+    }
     isLoading(){
         return this.data.loading;
+    }
+    isChecked(){
+        return this.data.isChecked;
+    }
+    isConfirmed(){
+        return this.data.isConfirmed;
     }
     hasErrors(){
         return this.data.error ? true : false;

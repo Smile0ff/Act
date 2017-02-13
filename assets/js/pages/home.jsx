@@ -97,7 +97,7 @@ class Home extends Component{
                 <PageMeta metadata={ metadata } />
                 <Header sponsors={ sponsors } socials={ socials } location={ this.props.location } isMobile={ isMobile } />
                 <main id="content">
-                    <SubscribeWidget />
+                    { !isMobile ? <SubscribeWidget /> : null }
                     <Intro intro={ intro } />
                     <Centers centers={ centers } isMobile={ isMobile } />
                     <Activities activities={ activities } />

@@ -8,5 +8,7 @@
     "landscape": "Поверніть, будь ласка, ваш пристрій",
     "studio": "CHEERS - Unlimited Web Production",
     "copyright": "©2016. All rights reserved. Created and designed by",
-    "subscribeText": "Для того щоб підписатись на розсилку введіть e-mail адресу та натисніть enter"
+    "subscribeText": "Для того щоб підписатись на розсилку введіть e-mail адресу та натисніть enter",
+    "confirmSubscribeSuccess": "Ви успішно підписанні на оновлення матеріалів, дякуємо!",
+    "confirmSubscribeError": "Некоректні дані, спробуйте пройти процес підписки з самого початку"
 }
