@@ -16,6 +16,7 @@ import Events from "Pages/events";
 import Event from "Pages/event";
 import Connect from "Pages/connect";
 import Subscribe from "Pages/subscribe";
+import Unsubscribe from "Pages/unsubscribe";
 
 import NotFound from "Pages/notFound";
 
@@ -39,6 +40,7 @@ class Routes extends Component{
                     <Route path={ RouterUrls.event } component={ Event } />
                     <Route path={ RouterUrls.connect } component={ Connect } />
                     <Route path={ RouterUrls.subscribe } component={ Subscribe } />
+                    <Route path={ RouterUrls.unsubscribe } component={ Unsubscribe } />
                     <Route path="*" component={ NotFound } />
                 </Route>
             </Router>

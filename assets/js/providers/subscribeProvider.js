@@ -67,6 +67,42 @@ class SubscribeProvider{
                 this.store.emit("change");
 
                 break;
+            case subscribeConstants.CHECK_UNSUBSCRIBE_START:
+
+                this.store.handleCheckUnsubscribeStart(action.payload);
+                this.store.emit("change");
+
+                break;
+            case subscribeConstants.CHECK_UNSUBSCRIBE_END:
+
+                this.store.handleCheckUnsubscribeEnd(action.payload);
+                this.store.emit("change");
+
+                break;
+            case subscribeConstants.CHECK_UNSUBSCRIBE_ERROR:
+
+                this.store.handleCheckUnsubscribeError(action.payload);
+                this.store.emit("change");
+
+                break;
+            case subscribeConstants.CONFIRM_UNSUBSCRIBE_START:
+
+                this.store.handleConfirmUnsubscribeStart(action.payload);
+                this.store.emit("change");
+
+                break;
+            case subscribeConstants.CONFIRM_UNSUBSCRIBE_END:
+
+                this.store.handleConfirmUnsubscribeEnd(action.payload);
+                this.store.emit("change");
+
+                break;
+            case subscribeConstants.CONFIRM_UNSUBSCRIBE_ERROR:
+
+                this.store.handleConfirmUnsubscribeError(action.payload);
+                this.store.emit("change");
+
+                break;
         }
 
     }

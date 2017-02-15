@@ -54,6 +54,32 @@ class SubscribeStore extends EventEmitter{
         this.data.isConfirmed = data.isConfirmed;
         this.data.error = data.error;
     }
+    handleCheckUnsubscribeStart(data){
+        this.data.loading = data.loading;
+    }
+    handleCheckUnsubscribeEnd(data){
+        this.data.loading = data.loading;
+        this.data.isChecked = data.isChecked;
+        this.data.email = data.email;
+    }
+    handleCheckUnsubscribeError(data){
+        this.data.loading = data.loading;
+        this.data.isChecked = data.isChecked;
+        this.data.error = data.error;
+    }
+    handleConfirmUnsubscribeStart(data){
+        this.data.loading = data.loading;
+    }
+    handleConfirmUnsubscribeEnd(data){
+        this.data.loading = data.loading;
+        this.data.isConfirmed = data.isConfirmed;
+        this.data.email = data.email;
+    }
+    handleConfirmUnsubscribeError(data){
+        this.data.loading = data.loading;
+        this.data.isConfirmed = data.isConfirmed;
+        this.data.error = data.error;
+    }
     isLoading(){
         return this.data.loading;
     }

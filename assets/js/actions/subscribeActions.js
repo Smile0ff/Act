@@ -131,3 +131,86 @@ export function confirmSubscribe(id, hash, email){
     });
 
 }
+
+export function checkUnsubscriber(id, hash){
+
+    let url = URLS.subscribers + "/unsubscribe/"+ id +"/"+ hash;
+
+    dispatcher.dispatch({
+        type: subscribeConstants.CHECK_UNSUBSCRIBE_START,
+        payload: { loading: true }
+    });
+
+    http.get({
+        url: url,
+        method: "GET"
+    })
+    .then((response) => {
+        response = JSON.parse(response.data);
+
+        dispatcher.dispatch({
+            type: subscribeConstants.CHECK_UNSUBSCRIBE_END,
+            payload: {
+                loading: false,
+                isChecked: true,
+                email: response.email
+            }
+        });
+
+    })
+    .catch((error) => {
+        error = JSON.parse(error.data);
+
+        dispatcher.dispatch({
+            type: subscribeConstants.CHECK_UNSUBSCRIBE_ERROR,
+            payload: {
+                loading: false,
+                isChecked: false,
+                error: error.detail
+            }
+        });
+    });
+
+}
+
+export function confirmUnsubscribe(id, hash, email){
+
+    let url = URLS.subscribers + "/unsubscribe/"+ id +"/"+ hash;
+
+    dispatcher.dispatch({
+        type: subscribeConstants.CONFIRM_UNSUBSCRIBE_START,
+        payload: { loading: true }
+    });
+
+    http.request({
+        url: url,
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        data: { email }
+    })
+    .then((response) => {
+        response = JSON.parse(response.data);
+
+        dispatcher.dispatch({
+            type: subscribeConstants.CONFIRM_UNSUBSCRIBE_END,
+            payload: {
+                loading: false,
+                isConfirmed: true,
+                email: response.email
+            }
+        });
+    })
+    .catch((error) => {
+        error = JSON.parse(error.data);
+
+        dispatcher.dispatch({
+            type: subscribeConstants.CONFIRM_UNSUBSCRIBE_ERROR,
+            payload: {
+                loading: false,
+                isConfirmed: false,
+                error: error.detail
+            }
+        });
+    });
+
+}
